@@ -1,0 +1,24 @@
+info:
+  name: PUT
+  type: http
+  seq: 10
+
+http:
+  method: PUT
+  url: "{{base_url}}{{path}}/dishes/2"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Margherita",
+        "description": "Classic pizza",
+        "price": 499.0,
+        "isAvailable": true
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
