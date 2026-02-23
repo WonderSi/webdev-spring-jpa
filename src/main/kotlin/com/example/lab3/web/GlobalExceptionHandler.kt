@@ -29,4 +29,12 @@ class GlobalExceptionHandler {
         error = "Bad Request",
         message = ex.message ?: "Bad request"
     )
+
+    @ExceptionHandler(HttpMessageNotReadableException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun handleNotReadable(ex: HttpMessageNotReadableException) = ErrorResponse(
+        status = 400,
+        error = "Bad Request",
+        message = "Invalid request body"
+    )
 }
